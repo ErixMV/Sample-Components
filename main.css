@@ -1,0 +1,84 @@
+/* Default style */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+/* ------------------------------------------------------------ */
+/* Animated input style */
+
+/* Input container */
+div.form {
+    position: relative;
+    width: 50%;
+    height: 50px;
+
+    overflow: hidden;
+}
+
+.form input {
+    /* The input size and the .form size are the same  */
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    color: #595f6e;
+    outline: none; 
+    padding-top: 20px;
+}
+
+.form label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-bottom: 1px solid black;
+    left: 0%;
+    pointer-events: none;
+}
+
+.form label::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-bottom: 2px solid #5fa8d3;
+    bottom: -1px;
+    content: "";
+    left: 0px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+
+    transition: all 0.3s ease;
+}
+
+.form input:focus + .label-name .content-name, 
+.form input:valid + .label-name .content-name {
+    color: #5fa8d3;
+    font-size: 14px;
+    transform: translateY(-150%);
+}
+
+.form input:focus + .label-name::after,
+.form input:valid + .label-name:after {
+    transform: translateX(0%);
+}
+
+/* ---------------------------------------- */
